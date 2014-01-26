@@ -29,8 +29,8 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            files: ['gruntfile.js', 'js/src/**/*.js', 'js/test/**/*.js'],
-            tasks: ['buster', 'default']
+            files: ['js/src/**/*.js'],
+            tasks: ['concat']
         }
     });
 
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-buster');
+    //grunt.loadNpmTasks('grunt-buster');
 
 
     grunt.registerTask('default', ['concat', 'uglify']);
