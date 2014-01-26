@@ -48,13 +48,15 @@ var gp = window.gp || {};
             "click": "selected"
         },
 
+        template: "<%= NAVN %> (<%= KILDE %>)",
+
         initialize: function () {
             _.bindAll(this, "selected");
         },
 
         render: function () {
             this.$el.attr("href", "#");
-            this.$el.html(this.model.get("NAVN"));
+            this.$el.html(_.template(this.template, this.model.toJSON()));
             return this;
         },
 

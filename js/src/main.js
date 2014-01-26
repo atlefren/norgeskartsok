@@ -6,6 +6,12 @@
         "+proj=utm +zone=33 +ellps=GRS80 +units=m +no_defs"
     );
 
+
+    proj4.defs(
+        "EPSG:25832",
+        "+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs"
+    );
+
     var searchCollection = new gp.SearchCollection();
     var map = new gp.MapView({
         el: $("#map"),

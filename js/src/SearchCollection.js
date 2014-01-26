@@ -8,13 +8,16 @@ var gp = window.gp || {};
         initialize: function (attributes, options) {
             var hasPosition = (
                 attributes.LONGITUDE &&
-                attributes.LATITUDE &&
-                attributes.EPSGKODE
+                attributes.LATITUDE
             );
             if (hasPosition) {
                 var lon = parseFloat(attributes.LONGITUDE.replace(",", "."));
                 var lat = parseFloat(attributes.LATITUDE.replace(",", "."));
-                var fromCRS = "EPSG:" + attributes.EPSGKODE;
+
+                var fromCRS = "EPSG:25832"; //assume this when no EPSG-code in result
+                if (attributes.EPSGKODE) {
+                    fromCRS = "EPSG:" + attributes.EPSGKODE;
+                }
                 var point = proj4(fromCRS, "EPSG:4326", [lon, lat]);
                 this.set("marker", L.marker([point[1], point[0]]));
             }
