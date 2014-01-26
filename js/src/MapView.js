@@ -50,9 +50,7 @@ var gp = window.gp || {};
 
             var marker = model.get("marker");
 
-            marker.addTo(this.map)
-                .bindPopup(model.get("NAVN"))
-                .openPopup();
+            marker.addTo(this.map);
 
             this.map.panTo(model.get("marker").getLatLng()).setZoom(12);
         }
