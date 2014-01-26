@@ -6,6 +6,9 @@ var gp = window.gp || {};
     var SearchResult = Backbone.Model.extend({
 
         initialize: function (attributes, options) {
+
+            _.bindAll(this, "selected");
+
             var hasPosition = (
                 attributes.LONGITUDE &&
                 attributes.LATITUDE
@@ -19,8 +22,20 @@ var gp = window.gp || {};
                     fromCRS = "EPSG:" + attributes.EPSGKODE;
                 }
                 var point = proj4(fromCRS, "EPSG:4326", [lon, lat]);
-                this.set("marker", L.marker([point[1], point[0]]));
+                this.set(
+                    "marker",
+                    L.marker(
+                        [point[1], point[0]],
+                        {title: attributes.NAVN}
+                    )
+                );
+
+                this.get("marker").on('click', this.selected);
             }
+        },
+
+        selected: function () {
+            this.collection.trigger("selected", this);
         }
 
     });

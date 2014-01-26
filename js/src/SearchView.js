@@ -5,13 +5,15 @@ var gp = window.gp || {};
 
     var SearchField = Backbone.View.extend({
 
-        tagName: "input",
+        //tagName: "input",
 
-        className: "form-control",
+        className: "input-group",
 
         events: {
-            "keyup": "search"
+            "keyup input": "search"
         },
+
+        template: $("#search_form_template").html(),
 
         initialize: function () {
             _.bindAll(this, "search");
@@ -19,17 +21,16 @@ var gp = window.gp || {};
         },
 
         render: function () {
-            this.$el.attr("type", "text");
-            this.$el.attr("placeholder", "Søk");
+            this.$el.html(this.template);
             return this;
         },
 
         showResult: function (model) {
-            this.$el.val(model.get("NAVN"));
+            this.$("input").val(model.get("NAVN"));
         },
 
         search: function () {
-            var term = this.$el.val();
+            var term = this.$("input").val();
             if (term === "") {
                 this.collection.reset([]);
             } else {
@@ -62,7 +63,7 @@ var gp = window.gp || {};
 
         selected: function (evt) {
             evt.preventDefault();
-            this.model.collection.trigger("selected", this.model);
+            this.model.selected();
         }
 
     });

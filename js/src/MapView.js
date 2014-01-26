@@ -47,9 +47,14 @@ var gp = window.gp || {};
                     this.map.removeLayer(model.get("marker"));
                 }
             }, this);
-            this.map.addLayer(model.get("marker"));
-            this.map.panTo(model.get("marker").getLatLng());
-            this.map.setZoom(12);
+
+            var marker = model.get("marker");
+
+            marker.addTo(this.map)
+                .bindPopup(model.get("NAVN"))
+                .openPopup();
+
+            this.map.panTo(model.get("marker").getLatLng()).setZoom(12);
         }
     });
 
