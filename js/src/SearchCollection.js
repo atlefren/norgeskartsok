@@ -1,4 +1,4 @@
-var gp = window.gp || {};
+var nks = window.nks || {};
 
 (function (ns, undefined) {
     "use strict";
@@ -68,4 +68,4 @@ var gp = window.gp || {};
         }
     });
 
-}(gp));
+}(nks));

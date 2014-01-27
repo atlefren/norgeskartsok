@@ -12,14 +12,14 @@
         "+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs"
     );
 
-    var searchCollection = new gp.SearchCollection();
-    var map = new gp.MapView({
+    var searchCollection = new nks.SearchCollection();
+    var map = new nks.MapView({
         el: $("#map"),
         collection: searchCollection
     }).render();
 
     map.$el.append(
-        new gp.SearchView({collection: searchCollection}).render().$el
+        new nks.SearchView({collection: searchCollection}).render().$el
     );
 
 }());

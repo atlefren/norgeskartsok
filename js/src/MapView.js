@@ -1,4 +1,4 @@
-var gp = window.gp || {};
+var nks = window.nks || {};
 
 (function (ns, undefined) {
     "use strict";
@@ -6,10 +6,7 @@ var gp = window.gp || {};
     var leafletUtils = window.leafletUtils || {};
     leafletUtils.SkTiles = function (options) {
         return L.tileLayer(
-            'http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=' + options.layers + '&zoom={z}&x={x}&y={y}',
-            {
-                attribution: "&copy; <a href='http://statkart.no'>Kartverket</a>"
-            }
+            'http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=' + options.layers + '&zoom={z}&x={x}&y={y}'
         );
     };
 
@@ -54,4 +51,4 @@ var gp = window.gp || {};
         }
     });
 
-}(gp));
+}(nks));
