@@ -49,9 +49,7 @@ var gp = window.gp || {};
             }, this);
 
             var marker = model.get("marker");
-
             marker.addTo(this.map);
-
             this.map.panTo(model.get("marker").getLatLng()).setZoom(12);
         }
     });
