@@ -12,6 +12,10 @@ Issues
 * Enn så lenge ingen mulighet for å begrense på fylke/kommune
 * ??
 
+Demo
+----
+https://rawgithub.com/atlefren/norgeskartsok/master/index.html
+
 Lisens
 ------
 MIT
